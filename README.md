@@ -6,13 +6,13 @@ This Python script downloads, cleans, and processes GIS data about properties, A
 
 ## Assumptions
 
-1. **0.5 meter buffer for address point geometries:** In the `run_general_tests` function, a test is performed to check if address point geometries lie within a 0.5 meter buffer of their associated parcel geometries. This assumption is made to account for potential errors in the geospatial data. If an address point is outside its associated parcel but within 0.5 meters of it, it is considered correct. This is a fair assumption given the small distance, which likely indicates a minor discrepancy in the data rather than a significant issue.
+1. **0.5 meter buffer for address point geometries:** In the `run_general_tests` function, a test is performed to check if address point geometries lie within a 0.5 meter buffer of their associated parcel geometries. This buffer is chosen based on an analysis of the dataset, revealing that all types of addresses fall within this range due to potential minor discrepancies rather than significant inaccuracies. This assumption allows us to accommodate slight geospatial data errors without compromising the overall integrity and usability of the processed data.
+2. 
+3. **Invalid addresses are filtered out:** Addresses with missing or empty street names are considered invalid and are filtered out during the cleaning process.
 
-2. **Invalid addresses are filtered out:** Addresses with missing or empty street names are considered invalid and are filtered out during the cleaning process.
+4. **Null geometries are filtered out:** The script filters out any null geometries from the dataset.
 
-3. **Null geometries are filtered out:** The script filters out any null geometries from the dataset.
-
-4. **Broken geometries are fixed:** The script attempts to fix any broken geometries using the `ST_MakeValid` function in PostGIS. If a geometry cannot be fixed, it is dropped from the dataset.
+5. **Broken geometries are fixed:** The script attempts to fix any broken geometries using the `ST_MakeValid` function in PostGIS. If a geometry cannot be fixed, it is dropped from the dataset.
 
 ## Dependencies
 - Python 3.x
