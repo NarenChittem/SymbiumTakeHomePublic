@@ -44,7 +44,7 @@ This Python script downloads, cleans, and processes GIS data about properties, A
    - `parcel_apn`: Contains parcel identifiers and associated APNs.
    - `parcel_address`: Contains parcel identifiers and associated addresses.
 
-6. The script also includes tests to validate the processed data. The tests check for APN format and uniqueness, address completeness, address point geometries within parcel boundaries, and orphan addresses without associated parcels.
+6. The script also includes tests to validate the processed data. The tests check for successful uploads, APA format, uniqueness, address completeness, address point geometries within parcel boundaries, orphan addresses without associated parcels, and other integrated tests.
 
 ## Known Bugs
 
